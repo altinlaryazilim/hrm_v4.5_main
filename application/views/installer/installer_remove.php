@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,25 +36,25 @@
                                     <div class="box-inner">
                                         <div class="inner">
                                             <img src="<?php echo base_url()?>assets/installer/img/001-trash-bin.png" alt="">
-                                            <h4>Please delete installer to run your application</h4>
+                                            <h4>Kurulum sihirbazını silerek uygulamanızı çalıştırın</h4>
                                         </div>
                                         <div class="text-right">
-                                            <a href="<?php echo base_url()?>installer/remove_installer" class="btn btn-danger btn-block">Delete Now</a>
+                                            <a href="<?php echo base_url()?>installer/remove_installer" class="btn btn-danger btn-block">Şimdi Sil</a>
                                         </div>
                                         <div class="text-center bordered-area">
-                                            <span>or</span>
+                                            <span>veya</span>
                                         </div>
                                     </div>                            
                                     <div class="instruction">
-                                        <h5 class="no-text">If you Don't have permission to delete the installer !</h5>
-                                        <p class="text-success">Please go through the following steps.</p>
+                                        <h5 class="no-text">Eğer kurulum sihirbazını silme izniniz yoksa !</h5>
+                                        <p class="text-success">Lütfen aşağıdaki adımları izleyin.</p>
                                         <ul class="step-list">
-                                            <li><span>1.</span> Go to the root folder of your server where placed all the files. ex: public_html/</li>
-                                            <li><span>2.</span> Delete the install folder.</li>
-                                            <li><span>3.</span> Then refresh this page or click the button below.</li>
+                                            <li><span>1.</span> Tüm dosyaların bulunduğu sunucunun kök klasörüne gidin. örn: public_html/</li>
+                                            <li><span>2.</span> install klasörünü silin.</li>
+                                            <li><span>3.</span> Ardından bu sayfayı yenileyin veya aşağıdaki düğmeye tıklayın.</li>
                                         </ul>
                                         <div class="text-right">
-                                            <a href="<?php echo base_url()?>installer" class="btn btn-refresh">Refresh</a>
+                                            <a href="<?php echo base_url()?>installer" class="btn btn-refresh">Yenile</a>
                                         </div>
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                     <!-- /.End of page wrapper -->
                     <footer class="footer text-center">
                         <div class="container">
-                            <div class="fText">Developed by <a target="_blank" href="https://www.bdtask.com/">bdtask</a></div>
+                            <div class="fText">Geliştirici: <a target="_blank" href="https://www.bdtask.com/">bdtask</a></div>
                         </div>
                     </footer>
                     <!-- /.End of footer -->
@@ -72,12 +72,9 @@
                 
             </div>
         </div>
-		
-		<script src="<?php echo base_url()?>assets/installer/js/jquery-3.4.1.min.js"></script>
-		<script src="<?php echo base_url()?>assets/installer/js/bootstrap.min.js"></script>
-		
+        
+        <script src="<?php echo base_url()?>assets/installer/js/jquery-3.4.1.min.js"></script>
+        <script src="<?php echo base_url()?>assets/installer/js/bootstrap.min.js"></script>
+        
     </body>
 </html>
-
-
-
