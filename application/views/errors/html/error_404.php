@@ -1,10 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('Doğrudan komut dosyası erişimine izin verilmiyor');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>404 Page Not Found</title>
+<title>404 Sayfa Bulunamadı</title>
 <style type="text/css">
 
 ::selection { background-color: #E13300; color: white; }
