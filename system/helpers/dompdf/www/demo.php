@@ -2,11 +2,11 @@
 
 require_once("../dompdf_config.inc.php");
 
-// We check wether the user is accessing the demo locally
-$local = array("::1", "127.0.0.1");
-$is_local = in_array($_SERVER['REMOTE_ADDR'], $local);
+// Kullanıcının demo'ya yerel olarak erişip erişmediğini kontrol ediyoruz
+$yerel = array("::1", "127.0.0.1");
+$yerel_mi = in_array($_SERVER['REMOTE_ADDR'], $yerel);
 
-if ( isset( $_POST["html"] ) && $is_local ) {
+if ( isset( $_POST["html"] ) && $yerel_mi ) {
 
   if ( get_magic_quotes_gpc() )
     $_POST["html"] = stripslashes($_POST["html"]);
@@ -16,24 +16,23 @@ if ( isset( $_POST["html"] ) && $is_local ) {
   $dompdf->set_paper($_POST["paper"], $_POST["orientation"]);
   $dompdf->render();
 
-  $dompdf->stream("dompdf_out.pdf", array("Attachment" => false));
+  $dompdf->stream("dompdf_cikti.pdf", array("Attachment" => false));
 
   exit(0);
 }
 
 ?>
-<?php include("head.inc"); ?>
+<?php include("baslik.inc"); ?>
 
 <a name="demo"> </a>
-<h2>Demo</h2>
+<h2>Deneme</h2>
 
-<?php if ($is_local) { ?>
+<?php if ($yerel_mi) { ?>
 
-<p>Enter your html snippet in the text box below to see it rendered as a
-PDF: (Note by default, remote stylesheets, images &amp; inline PHP are disabled.)</p>
+<p>PDF olarak işlenmiş bir html parçasını görmek için aşağıdaki metin kutusuna html parçanızı girin: (Not: Varsayılan olarak, uzak stiller, resimler ve içe gömülü PHP devre dışı bırakılmıştır.)</p>
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-<p>Paper size and orientation:
+<p>Kağıt boyutu ve yönelimi:
 <select name="paper">
 <?php
 foreach ( array_keys(CPDF_Adapter::$PAPER_SIZES) as $size )
@@ -41,8 +40,8 @@ foreach ( array_keys(CPDF_Adapter::$PAPER_SIZES) as $size )
 ?>
 </select>
 <select name="orientation">
-  <option value="portrait">portrait</option>
-  <option value="landscape">landscape</option>
+  <option value="portrait">dikey</option>
+  <option value="landscape">yatay</option>
 </select>
 </p>
 
@@ -51,34 +50,32 @@ foreach ( array_keys(CPDF_Adapter::$PAPER_SIZES) as $size )
 &lt;head&gt;
 &lt;style&gt;
 
-/* Type some style rules here */
+/* Buraya bazı stil kuralları yazın */
 
 &lt;/style&gt;
 &lt;/head&gt;
 
 &lt;body&gt;
 
-&lt;!-- Type some HTML here --&gt;
+&lt;!-- Buraya bazı HTML yazın --&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;
 </textarea>
 
 <div style="text-align: center; margin-top: 1em;">
-  <button type="submit">Download</button>
+  <button type="submit">İndir</button>
 </div>
 
 </form>
-<p style="font-size: 0.65em; text-align: center;">(Note: if you use a KHTML
-based browser and are having difficulties loading the sample output, try
-saving it to a file first.)</p>
+<p style="font-size: 0.65em; text-align: center;">(Not: Bir KHTML tabanlı tarayıcı kullanıyorsanız ve örnek çıktıyı yüklerken zorluk yaşıyorsanız, önce bir dosyaya kaydetmeyi deneyin.)</p>
 
 <?php } else { ?>
 
   <p style="color: red;">
-    User input has been disabled for remote connections.
+    Uzaktan bağlantılar için kullanıcı girişi devre dışı bırakılmıştır.
   </p>
   
 <?php } ?>
 
-<?php include("foot.inc"); ?>
+<?php include("alt.inc"); ?>
